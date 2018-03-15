@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <style type="text/css"  >
+
+        .instruction {
+            text-align: justify;
+            margin-left: 7%;
+            margin-right: 7%;
+            margin-top: 2%;
+            font-size: 110%;
+            font-weight: bold;
+        }
+        h2{
+
+            margin-left:7%;
+        }
+        .contain{
+            border: 2px solid black;
+            padding: 20px;
+            margin-left: 7%;
+            margin-right: 7%;
+        }
+         .b2n{
+             margin-top: 2%;
+             margin-left: 7%;
+             margin-right: 7%;
+         }
+        .navbar-brand{
+            margin-left: 40%;
+        }
+        img{
+            margin-left: 24%;
+        }
+        #back_black{
+            background-color: black;
+        }
+    </style>
+    <title>Resume Generator</title>
+</head>
+<body>
+<!--<img src="data:image/jpeg;base64,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"-->
+     <!--width="200" height="200" alt="" >-->
+<div  id="back_black">
+<img src="http://www.ecelldtu.in/img/ecell/logo.png" width="700" height="350">
+</div>
+<nav class="navbar navbar-dark bg-dark sticky-top">
+
+    <a class="navbar-brand" href="#">Resume Generator</a>
+
+
+</nav>
+
+<div class="jumbotron">
+
+    <div class="instruction">
+        <h1>How this works:</h1>
+        <hr class="my-4">
+        Click in each box and type your information. When ready, click the "Create My Resume" button at the bottom of this page.
+        Once you have done so, you can print the resume.
+
+    </div>
+</div>
+
+
+<br>
+<br>
+   <h2>About You :</h2>
+
+
+<div class="contain">
+<form>
+    <div class="form-group">
+        <label for="exampleInputName1">Name</label>
+        <input type="text" class="form-control" id="exampleInputName1" placeholder="Full Name" >
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email Id"  required>
+        <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+    </div>
+
+    <div class="form-group">
+        <label for="mobile">Contact</label>
+        <input type="number" class="form-control" id="mobile" placeholder="Mobile Number" >
+    </div>
+
+</form>
+</div>
+<h2>Your Education / Training :</h2>
+
+
+<div class="contain">
+    <form>
+        <div class="form-group">
+            <label for="college">Name Of College/training</label>
+            <input type="text" class="form-control" id="college" placeholder="Full Name" >
+        </div>
+        <div class="form-group">
+            <label for="degree">Your Degree Title/Area Of Training</label>
+            <input type="text" class="form-control" id="degree" aria-describedby="emailHelp" placeholder="Degree" >
+            <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+        </div>
+
+        <div class="form-group">
+            <label for="grad">Your Year Of Studying</label>
+            <!--<input type="text" class="form-control" id="grad" aria-describedby="emailHelp" placeholder="Year">-->
+            <select id="grad">
+                <option>1st</option>
+                <option>2nd</option>
+                <option>3rd</option>
+                <option>4th</option>
+            </select>
+            <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+        </div>
+
+        <div class="form-group">
+            <label for="twlth">Class 12<sup>th</sup> percentage</label>
+            <input type="text" class="form-control" id="twlth" aria-describedby="emailHelp" placeholder="Marks" >
+            <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+        </div>
+        <div class="form-group">
+            <label for="agg">College Aggregate</label>
+            <input type="text" class="form-control" id="agg" aria-describedby="emailHelp" placeholder="Aggregate" >
+            <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+        </div>
+
+    </form>
+</div>
+<h2>Projects :</h2>
+
+
+<div class="contain">
+    <form>
+        <div class="form-group">
+            <label for="paragraph">Write About Your Projects Here And Along With Them Write Their Description.</label>
+            <!--<br>-->
+            <!--<textarea name="paragraph_text" cols="50" rows="10" id="paragraph" ></textarea>-->
+            <input type="text" class="form-control" id="paragraph" aria-describedby="emailHelp" placeholder="Project 1" >
+            <br>
+            <input type="text" class="form-control" id="paragraph2" aria-describedby="emailHelp" placeholder="Project 2" >
+            <br>
+            <input type="text" class="form-control" id="paragraph3" aria-describedby="emailHelp" placeholder="Project 3" >
+            <br>
+            <input type="text" class="form-control" id="paragraph4" aria-describedby="emailHelp" placeholder="Project 4" >
+        </div>
+
+
+
+    </form>
+</div>
+
+<h2>Work Experience :</h2>
+<div class="contain">
+    <form>
+        <div class="form-group">
+            <label for="wrkexp">Write About Your Work Experience (if any)</label>
+            <br>
+            <textarea name="paragraph_text" cols="50" rows="3" id="wrkexp" ></textarea>
+
+        </div>
+
+
+
+    </form>
+</div>
+<h2>Skills :</h2>
+<div class="contain">
+    <form>
+        <div class="form-group">
+            <label for="skills">Write Your Skills Here.</label>
+            <br>
+            <textarea name="paragraph_text" cols="50" rows="3" id="skills" ></textarea>
+
+        </div>
+
+
+
+    </form>
+</div>
+<h2>Other Interests :</h2>
+<div class="contain">
+    <form>
+        <div class="form-group">
+            <label for="int">Write About Your Other Interests</label>
+            <br>
+            <textarea name="paragraph_text" cols="50" rows="3" id="int" ></textarea>
+
+        </div>
+
+
+
+    </form>
+</div>
+
+
+<div class="b2n">
+<button type="submit"  class="btn btn-success btn-lg ">Create My Resume</button>
+
+</div>
+<br>
+<br>
+<script type="text/javascript" src="try.js"></script>
+</body>
+</html>
