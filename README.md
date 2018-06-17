@@ -1,2 +1,2 @@
 # Resume-Generator
-Helps generate resume easi
+Helps generate resume easily
